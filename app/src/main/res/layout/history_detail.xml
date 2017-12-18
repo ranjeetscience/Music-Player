@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusableInTouchMode="true"
+    android:descendantFocusability="beforeDescendants"
+    >
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_search"
+        android:layout_margin="2dp"
+        android:drawableStart="@mipmap/ic_search"
+        android:hint="Search(By Name)"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_result_found"
+        android:textColor="#FF4081"
+        android:visibility="gone"
+        android:layout_below="@+id/et_search"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:text="No Song Found!"
+        android:textColor="#F44336"
+        android:visibility="gone"
+        android:layout_marginTop="150sp"
+        android:id="@+id/tv_result_not_found"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/tv_result_found"
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        />
+</RelativeLayout>

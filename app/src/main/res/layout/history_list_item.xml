@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="0dp"
+    app:cardBackgroundColor="@color/viewBg"
+    android:id="@+id/card_view"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    >
+    <RelativeLayout
+        android:padding="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/album1"
+            android:id="@+id/song_image_view"/>
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/song_image_view"
+            android:id="@+id/tv_song_name"
+            android:text="Afreen Afreen"
+            android:textSize="20sp"
+            android:textColor="@color/album_title"
+            android:maxLines="1"
+            android:ellipsize="marquee"
+            />
+        <TextView
+            android:maxLines="1"
+            android:ellipsize="marquee"
+            android:layout_marginLeft="10dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/song_image_view"
+            android:text="Rahat Fateh Ali Khan, Momina Mustehsan"
+            android:textSize="14sp"
+            android:layout_below="@id/tv_song_name"
+            android:id="@+id/tv_artist_name"
+            android:textColor="@color/album_title"
+            />
+        <ImageView
+            android:layout_marginLeft="10sp"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_download"
+            android:layout_toRightOf="@+id/tv_song_name"
+            android:id="@+id/play_button"
+            android:clickable="true"
+            />
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_star_not_filled"
+            android:layout_toRightOf="@+id/play_button"
+            android:id="@+id/pause_button"
+            android:visibility="invisible"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_time"
+            android:layout_toRightOf="@+id/song_image_view"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/tv_artist_name"
+            android:text="Played At: 15th August 1947"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
