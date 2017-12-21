@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class PlayListClass extends AppCompatActivity {
     RecyclerView recyclerView;
-    SongListAdapter adapter;
+    PlayListAdapter adapter;
     ArrayList<Song> songs=new ArrayList<>();
     EditText etSearch;
     TextView tvResutFound,tvResultNotFound;
@@ -59,7 +59,7 @@ public class PlayListClass extends AppCompatActivity {
 
     }
     private void fillSongList(ArrayList<Song> songs) {
-        adapter=new SongListAdapter(songs,getApplicationContext(),this,1);
+        adapter=new PlayListAdapter(songs,getApplicationContext(),this,1);
         recyclerView.setAdapter(adapter);
     }
     private void filter(String song) {

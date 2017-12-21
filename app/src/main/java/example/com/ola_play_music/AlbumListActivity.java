@@ -103,6 +103,14 @@ public class AlbumListActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(adapter!=null)
+            adapter.notifyDataSetChanged();
+    }
+
     private void fillSongList(ArrayList<Song> songs) {
         adapter=new SongListAdapter(songs,getApplicationContext(),this,0);
         recyclerView.setAdapter(adapter);
@@ -124,6 +132,7 @@ public class AlbumListActivity extends AppCompatActivity {
             adapter.updateList(temp);
         }
     }
+
 
 }
 

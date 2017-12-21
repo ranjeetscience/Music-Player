@@ -3,7 +3,6 @@ package example.com.ola_play_music;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -21,6 +20,7 @@ import com.bumptech.glide.Glide;
 
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
@@ -32,7 +32,7 @@ import java.util.Calendar;
  * Created by ranjeet on 16/12/17.
  */
 
-public class SongListAdapter extends RecyclerView.Adapter<SongListAdapterViewHolder> {
+public class PlayListAdapter extends RecyclerView.Adapter<SongListAdapterViewHolder> {
     private LayoutInflater inflater;
     private Context context;
     private ArrayList<Song> songs;
@@ -42,7 +42,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapterViewHol
     private static final int REQUEST_WRITE_STORAGE = 112;
 
     int pageNo=0;
-    public SongListAdapter(ArrayList<Song> songs, Context context, Activity activity,int pageNo)
+    public PlayListAdapter(ArrayList<Song> songs, Context context, Activity activity,int pageNo)
     {
         this.context =context;
         inflater=LayoutInflater.from(context);
@@ -95,12 +95,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapterViewHol
             public void onClick(View v) {
                 db.addToHIistory(new History(song.getUrl(),song.getArtists(),song.getCover_image(),song.getSong(), Calendar.getInstance().getTimeInMillis()));
 
-                Intent intent=new Intent(activity,SongPlaying.class);
-                intent.putExtra("size",songs.size());
-                intent.putExtra("song",song.getSong());
-                intent.putExtra("postion",position);
-                activity.startActivity(intent);
-                /*                if (mMediaPlayer.isPlaying()) {
+                if (mMediaPlayer.isPlaying()) {
                     mMediaPlayer.stop();
                     mMediaPlayer.reset();}
 
@@ -114,7 +109,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapterViewHol
                     mProgressDialog.setCancelable(false);
                     mProgressDialog.show();
                 } catch (IOException e) {
-                    e.printStackTrace();}*/
+                    e.printStackTrace();}
             }
         });
 

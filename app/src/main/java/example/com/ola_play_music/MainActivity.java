@@ -18,6 +18,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,6 +43,12 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         initCollapsingToolbar();
+        SongList.getSongs(1, new ResponseListener<Song>() {
+            @Override
+            public void response(Song responseObject) {
+                Log.v("ranjeet",responseObject.getSong());
+            }
+        });
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 

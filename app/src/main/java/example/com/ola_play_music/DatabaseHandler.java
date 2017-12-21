@@ -33,7 +33,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
 
-
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -127,7 +126,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_SONG,dbModel.getSong());
-        values.put(KEY_ARTIST_NAME_1, dbModel.getArtists()); // Contact Name
+        values.put(KEY_ARTIST_NAME_1, dbModel.getArtists());
         values.put(KEY_URL_1,dbModel.getUrl());
         values.put(KEY_PHOTO_1,dbModel.getCover_image());
         values.put(KEY_TIMESTAMP,String.valueOf(dbModel.getTimestamp()));
@@ -166,44 +165,5 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
-/*    public Song getWifi(String ssid)
-    {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_WIFI, new String[] { KEY_ID,
-                        KEY_SSID, KEY_UPSPEED ,KEY_DOWNSPEED,KEY_TIMESTAMP}, KEY_SSID + "=?",
-                new String[] { String.valueOf(ssid) }, null, null, null, null);
-        if (cursor != null)
-            cursor.moveToFirst();
-        else
-            return null;
-        if(cursor.getCount()==0){
-            return null;
-        }
 
-        DbModel contact = new DbModel(cursor.getString(1),cursor.getDouble(2),cursor.getDouble(3),Long.parseLong(cursor.getString(4)));
-        // return contact
-        db.close();
-        return contact;
-    }
-
-    public int updateWifi(DbModel dbModel)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(KEY_SSID,dbModel.getSsid());
-        values.put(KEY_UPSPEED,dbModel.getUpSpeed());
-        values.put(KEY_DOWNSPEED,dbModel.getDownSpeed());
-        values.put(KEY_TIMESTAMP,dbModel.getTimestamp());
-
-
-        return db.update(TABLE_WIFI, values, KEY_SSID + " = ?",
-                new String[] { String.valueOf(dbModel.getSsid()) });
-    }
-    public void deleteWifi(String ssid)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_WIFI, KEY_ID + " = ?", new String[] { ssid });
-        db.close();
-    }*/
 }
